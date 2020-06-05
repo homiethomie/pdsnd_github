@@ -5,6 +5,7 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+# alternativele refactoring: shove ls MONTHS and ls DAYS into if-condition
 MONTHS = ['january','february','march','april','may','june','all']
 DAYS = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday','all']
 
