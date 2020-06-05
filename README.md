@@ -6,6 +6,12 @@ Udacity third Project: Post your work on Github
 
 ### Project Description:
 Post your work from the bikeshare project on Github
+including:
+- Set up your Repository
+- Improve Documentation
+- Additional Changes to Documentation
+- Refactor Code
+- Merge Branches
 
 
 ### Files used:
