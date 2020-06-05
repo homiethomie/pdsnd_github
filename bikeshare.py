@@ -22,7 +22,7 @@ def get_filters():
     # TO DO: get user input for month (all, january, february, ... , june)
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
-        city = input('Type city: Chicago, New York City, Washington: ').lower()    
+        city = input('Type city: Chicago, New York City, Washington: ').lower()
         if city not in CITY_DATA:
             print('invalid input, let\'s try again')
             continue
@@ -63,7 +63,7 @@ def get_filters():
             else:
                 print('please check your input. let\'s try again')
                 continue
-            
+
         print('-'*40)
     return city, month, day
 
@@ -96,7 +96,7 @@ def load_data(city, month, day):
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month)+1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
@@ -104,7 +104,7 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['weekday'] == day.title()]
-    
+
     return df
 
 
@@ -123,21 +123,21 @@ def time_stats(df):
     months = ['January', 'February', 'March', 'April', 'May', 'June']
     common_month = months[common_month - 1]
     print('The most popular month is',common_month)
-    
+
     # EXTRA TO DO: display the busiest week
     df['week'] = df['Start Time'].dt.week
     calendar_week = df['week'].mode()[0]
     print('The busiest week was calendar week',calendar_week)
-    
+
     # TO DO: display the most common day of week
     common_day = df['weekday'].mode()[0]
     print('The most common day is',common_day)
-    
+
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     common_hour = df['hour'].mode()[0]
     print('The most common hour is',common_hour)
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -160,7 +160,7 @@ def station_stats(df):
     df['Combo Station'] = df["Start Station"] +" - "+ df["End Station"]
     common_combo = df['Combo Station'].mode()[0]
     print('The most frequent combination of start station and end station is :', common_combo)
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -208,17 +208,17 @@ def user_stats(df):
         print('The earliest, most recent, and most common year of birth (in this order) is: ',earliest, ', ', most_recent, ', ', most_common)
     else:
         print('In this file is no birth year information')
-        
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    
+
 def display_data(df):
     rows = 0
-    answers = ['yes','no']
+    # saving this line: answers = ['yes','no'] and adding it into if-condition
     while True:
         interest = input('Would you like to see (more) rows of raw data? (Yes or No): ').lower()
-        if interest not in answers:
+        if interest not in ['yes','no']:
             print('Invalid answer! Let\'s try again with Yes or No')
             continue
         elif interest == 'yes':
@@ -236,7 +236,7 @@ def display_data(df):
         else:
             print('Well then, let\'s move on')
             break
-                
+
 
 def main():
     while True:
