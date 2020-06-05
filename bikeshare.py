@@ -217,10 +217,10 @@ def user_stats(df):
 
 def display_data(df):
     rows = 0
-    answers = ['yes','no']
+    # saving this line: answers = ['yes','no'] and adding it into if-condition
     while True:
         interest = input('Would you like to see (more) rows of raw data? (Yes or No): ').lower()
-        if interest not in answers:
+        if interest not in ['yes','no']:
             print('Invalid answer! Let\'s try again with Yes or No')
             continue
         elif interest == 'yes':
